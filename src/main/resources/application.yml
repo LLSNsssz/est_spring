@@ -1,7 +1,3 @@
 spring:
   application:
     name: basic
-
-kakao:
-  api:
-    key: 123412341234

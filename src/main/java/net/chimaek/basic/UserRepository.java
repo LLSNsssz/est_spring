@@ -1,17 +1,18 @@
 package net.chimaek.basic;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserRepository implements UserRepositoryInterface{
+public class UserRepository {
 
-    @Override
-    public void save(User user){
-        System.out.println("UserRepository.save");
-    }
+    Map<String, User> users = new HashMap<>();
 
-    @Override
-    public void delete(User user) {
-        System.out.println("User delete");
+
+
+    public User getUser(String key) {
+    users.put("max", new User("max@gmail.com", "Max", 20));
+        return users.get(key);
     }
 }
