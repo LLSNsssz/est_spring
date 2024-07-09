@@ -1,25 +1,32 @@
 package net.chimaek.basic;
 
-import jakarta.servlet.ServletException;
-import java.io.IOException;
+import jakarta.annotation.PostConstruct;
+import java.util.TimeZone;
+import net.chimaek.day0709.ValueTest;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.DispatcherServlet;
 
 @SpringBootApplication(
-    scanBasePackages = "net.chimaek"
+    scanBasePackages = "net.chimaek.day0709"
 )
 public class BasicApplication {
 
-  public static void main(String[] args) throws ServletException, IOException {
-    DispatcherServlet dispatcherServlet = new DispatcherServlet();
-    String url = "/hello";
+    @Value("${server.port}")
+    private String serverPort;
 
-    MockHttpServletRequest request = new MockHttpServletRequest(url);
-    MockHttpServletResponse response = new MockHttpServletResponse();
+    @Value("${spring.application.name}")
+    private String applicationName;
 
-    dispatcherServlet.service(request, response);
+    @PostConstruct
+    public void printConfig() {
+        TimeZone.setDefault(TimeZone.getTimeZone("Asia/Seoul"));
+        System.out.println("포트번호: " + serverPort);
+        System.out.println("애플리케이션 이름: " + applicationName);
+    }
 
-    System.out.println(response.getContentType());
-    System.out.println("응답 내용" + response.getContentType());
-  }
+
+    public static void main(String[] args) {
+        SpringApplication.run(BasicApplication.class, args);
+    }
 }
