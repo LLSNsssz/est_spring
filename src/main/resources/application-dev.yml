@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: est-service-dev
+
+  devtools:
+    restart:
+      enabled: true
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
