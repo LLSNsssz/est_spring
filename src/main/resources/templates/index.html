@@ -1,14 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Title</title>
 </head>
 <body>
-<h1>데일리 테스트</h1>
-<p th:text="${string1}+${string2}+${string3}+${string4}+${string5}">메세지가 표시됩니다.</p>
+<h1>스프링부트 타임리프 홈페이지 테스트</h1>
+<div th:object="${user}">
+  <p>이름 : <span th:text="*{username}"></span></p>
+  <p>이메일 : <span th:text="*{email}"></span></p>
+  <p th:unless="${user.admin}">이 사람은 관리자 권한이 있습니다.</p>
+
+  <p th:if="${user.person}">이 사람은 관리자 권한이 있습니다.:if</p>
+  <p th:unless="${user.person}">이 사람은 관리자 권한이 있습니다.:unless</p>
+</div>
+<ul th:each="item:${iterDate}">
+  <li th:text="${item}"></li>
+</ul>
+
+<a th:href="@{/index/2}">인덱스 2 페이지로 가기</a>
+<a th:href="@{/index/3}">인덱스 3 페이지로 가기</a>
 </body>
 </html>

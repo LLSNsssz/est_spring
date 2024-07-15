@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(
-    scanBasePackages = "net.chimaek.day0709"
+    scanBasePackages = "net.chimaek.day0715"
 )
 public class BasicApplication {
 
