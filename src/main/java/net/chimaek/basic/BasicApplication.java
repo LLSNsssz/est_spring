@@ -2,13 +2,12 @@ package net.chimaek.basic;
 
 import jakarta.annotation.PostConstruct;
 import java.util.TimeZone;
-import net.chimaek.day0709.ValueTest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(
-    scanBasePackages = "net.chimaek.day0715"
+    scanBasePackages = "net.chimaek.day0717_restapi"
 )
 public class BasicApplication {
 
